@@ -16,6 +16,30 @@ const { title, subtitle } = Astro.props;
   </div>
 </div>
 
+---
+import TimeLine from '../components/cv/TimeLine.astro';
+---
 
+<section>
+  <h2 class="text-2xl font-bold">Education</h2>
+
+  <TimeLine 
+    title="Bachelor of Economics" 
+    subtitle="2018 – 2022 at University of Economics Ho Chi Minh City (UEH), Vietnam"
+  >
+    <p>
+      Focused on macroeconomics, development economics, and quantitative methods. Graduated with honors and completed a thesis on monetary policy effectiveness in Vietnam.
+    </p>
+  </TimeLine>
+
+  <TimeLine 
+    title="Master of Public Policy" 
+    subtitle="2023 – 2025 (expected) at Fulbright University Vietnam, Ho Chi Minh City"
+  >
+    <p>
+      Specializing in economic policy and governance. Coursework includes policy evaluation, econometrics, and leadership in public service.
+    </p>
+  </TimeLine>
+</section>
 
 
