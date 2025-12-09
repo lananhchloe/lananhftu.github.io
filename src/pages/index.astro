@@ -14,17 +14,16 @@ const last_posts = posts.slice(0, 3);
   <div class="pb-12 mt-5">
     <div class="text-xl py-1">Hey there 👋</div>
     <div class="text-6xl font-bold">
-  I'm <span id="typing" class="text-purple-500"></span>
-  </div>
+      I'm <span id="typing" class="text-purple-500"></span>
+    </div>
     <div class="text-3xl py-3 font-bold">Bachelor of International Economics @Foreign Trade University</div>
     <div class="py-2">
-      <text class="text-lg">
-      As a junior at Foreign Trade University majoring in International Economics, I am deeply interested in applying data-driven methods to understand financial markets and support investment decisions. With a strong grounding in economics and quantitative analysis, I am now focusing on financial data analytics-translating complex datasets into actionable insights for valuation, portfolio strategies, and market forecasting.
-      </text>
+      <p class="text-lg">
+        As a junior at Foreign Trade University majoring in International Economics, I am deeply interested in applying data-driven methods to understand financial markets and support investment decisions. With a strong grounding in economics and quantitative analysis, I am now focusing on financial data analytics-translating complex datasets into actionable insights for valuation, portfolio strategies, and market forecasting.
+      </p>
     </div>
     <div class="mt-8">
       <a class="btn" href="https://www.linkedin.com/in/lananhchloe" target="_blank"> Let's connect!</a>
-      </a>
     </div>
   </div>
 
@@ -75,16 +74,36 @@ const last_posts = posts.slice(0, 3);
     ))
   }
 </BaseLayout>
+
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    new Typed("#typing", {
+<script is:inline>
+  // Khai báo biến bên ngoài để quản lý
+  var typedInstance;
+
+  function startTyping() {
+    // Nếu đã có instance cũ (do gõ xong hoặc chuyển tab), hủy nó đi để tránh lỗi chồng chéo
+    if (typedInstance) {
+      typedInstance.destroy();
+    }
+
+    // @ts-ignore - Bỏ qua check TS vì Typed được load từ CDN
+    typedInstance = new Typed("#typing", {
       strings: ["Lan Anh"],
       typeSpeed: 70,
       backSpeed: 40,
       cursorChar: "|",
-      loop: false
+      loop: false,
     });
+  }
+
+  // Chạy khi load trang
+  document.addEventListener("DOMContentLoaded", startTyping);
+
+  // LOGIC QUAN TRỌNG: Chạy lại khi người dùng quay lại tab
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      startTyping();
+    }
   });
 </script>
