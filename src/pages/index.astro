@@ -1,109 +1,153 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
+import dayjs from "dayjs";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 const last_posts = posts.slice(0, 3);
+
+const skills = ["Python", "SQL", "Statistical Data Analysis", "Quantitative Research", "Analytical Thinking", "WorldQuant BRAIN"];
 ---
 
-<BaseLayout sideBarActiveItemID="home">
-  <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-6xl font-bold">
-      I'm <span id="typing" class="text-purple-500"></span>
-    </div>
-    <div class="text-3xl py-3 font-bold">Bachelor of International Economics @Foreign Trade University</div>
-    <div class="py-2">
-      <p class="text-lg">
-        As a junior at Foreign Trade University majoring in International Economics, I am deeply interested in applying data-driven methods to understand financial markets and support investment decisions. With a strong grounding in economics and quantitative analysis, I am now focusing on financial data analytics-translating complex datasets into actionable insights for valuation, portfolio strategies, and market forecasting.
+<BaseLayout sideBarActiveItemID="home" bleed>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <span class="tag reveal">Portfolio 2026 · Financial Data Analytics</span>
+      <h1 class="hero-title reveal" style="--d:.08s">
+        Hi, I'm Lan Anh. I turn <span class="serif-accent">financial data</span> into confident decisions.
+      </h1>
+      <p class="hero-sub reveal" style="--d:.16s">
+        International Economics @ Foreign Trade University · WorldQuant BRAIN Research Consultant
       </p>
+      <div class="flex flex-wrap justify-center gap-3 mt-9 reveal" style="--d:.24s">
+        <a class="btn-pro btn-light" href="https://www.linkedin.com/in/lananhchloe" target="_blank" rel="noopener">
+          Let's connect <span class="arr">↗</span>
+        </a>
+        <a class="btn-pro btn-dark" href="/cv">View my CV</a>
+      </div>
     </div>
-    <div class="mt-8">
-      <a class="btn bg-blue-100 text-gray-900 font-medium hover:bg-blue-200 transition-colors" href="https://www.linkedin.com/in/lananhchloe" target="_blank"> Let's connect!</a>
-    </div>
-  </div>
+  </section>
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
-  </div>
+  <div class="wrap">
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <span class="eyebrow reveal">About</span>
+      <div class="about-grid">
+        <div class="reveal">
+          <p class="statement">
+            Economics grounding. <span class="dim">Quantitative edge. Built for</span>
+            <span class="serif-accent">markets.</span>
+          </p>
+          <p class="mt-6 text-[16px] leading-relaxed text-[#b4bfd6] max-w-[560px]">
+            As a junior at Foreign Trade University majoring in International Economics, I am deeply interested in applying data-driven methods to understand financial markets and support investment decisions. With a strong grounding in economics and quantitative analysis, I am now focusing on financial data analytics-translating complex datasets into actionable insights for valuation, portfolio strategies, and market forecasting.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-6">
+            {skills.map((s) => <span class="chip">{s}</span>)}
+          </div>
+        </div>
 
-  <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
-  />
+        <div class="kpi-grid reveal" style="--d:.1s">
+          <div class="kpi">
+            <div class="kpi-num">Top 5%</div>
+            <div class="kpi-cap">Global · Global Alpha Competition 2025 — WorldQuant BRAIN</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-num">3.67</div>
+            <div class="kpi-cap">Cumulative GPA / 4.00</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-num">Top 10%</div>
+            <div class="kpi-cap">Vietnam · Super Alpha Competition 2025</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-num">Expert</div>
+            <div class="kpi-cap">WorldQuant certificate level</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-num">Top 5</div>
+            <div class="kpi-cap">Best Poster · International Conference</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
-  </div>
+    <!-- ============ PROJECTS (bento) ============ -->
+    <section class="section" id="projects">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal">Selected projects</span>
+          <h2 class="h-section mt-3 reveal">Work that <span class="serif-accent">speaks</span> in numbers.</h2>
+        </div>
+        <a href="/projects" class="btn-pro btn-dark reveal">All projects <span class="arr">↗</span></a>
+      </div>
 
-  {
-    last_posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.slug)}
-          target="_self"
-          badge={post.data.badge}
+      <div class="bento">
+        <ProjectCard
+          variant="featured"
+          index="#01"
+          title="Demo Project 1"
+          badge="NEW"
+          desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         />
-        <div class="divider my-0" />
-      </>
-    ))
-  }
+        <ProjectCard
+          index="#02"
+          title="Demo Project 2"
+          delay={0.08}
+          desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        />
+        <ProjectCard
+          variant="light"
+          index="#03"
+          title="Demo Project 3"
+          badge="FOSS"
+          delay={0.16}
+          desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        />
+      </div>
+    </section>
+
+    <!-- ============ BLOG ============ -->
+    <section class="section" id="writing">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal">Latest from blog</span>
+          <h2 class="h-section mt-3 reveal">Notes &amp; <span class="serif-accent">insights.</span></h2>
+        </div>
+      </div>
+      <div class="row-list">
+        {
+          last_posts.map((post) => (
+            <HorizontalCard
+              title={post.data.title}
+              desc={post.data.description}
+              url={"/blog/" + createSlug(post.data.title, post.slug)}
+              target="_self"
+              badge={post.data.badge}
+              meta={dayjs(post.data.pubDate).format("MMM D, YYYY")}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta reveal">
+      <span class="tag !bg-white/10 !text-white !border-white/30">Open to opportunities</span>
+      <h2 class="cta-title mt-5">Let's build something<br />with <span class="serif-accent">data.</span></h2>
+      <p class="cta-sub">Internships, research collaborations, or a chat about quant &amp; financial analytics.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a class="btn-pro btn-light" href="mailto:lananhchloe1509@gmail.com">Email me <span class="arr">↗</span></a>
+        <a class="btn-pro !bg-[#05070d]/80 !text-white" href="https://www.linkedin.com/in/lananhchloe" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="cta-giant" aria-hidden="true">LAN ANH</div>
+    </section>
+  </div>
 </BaseLayout>
-
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-<script is:inline>
-  // Khai báo biến bên ngoài để quản lý
-  var typedInstance;
-
-  function startTyping() {
-    // Nếu đã có instance cũ (do gõ xong hoặc chuyển tab), hủy nó đi để tránh lỗi chồng chéo
-    if (typedInstance) {
-      typedInstance.destroy();
-    }
-
-    // @ts-ignore - Bỏ qua check TS vì Typed được load từ CDN
-    typedInstance = new Typed("#typing", {
-      strings: ["Lan Anh"],
-      typeSpeed: 70,
-      backSpeed: 40,
-      cursorChar: "|",
-      loop: false,
-    });
-  }
-
-  // Chạy khi load trang
-  document.addEventListener("DOMContentLoaded", startTyping);
-
-  // LOGIC QUAN TRỌNG: Chạy lại khi người dùng quay lại tab
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") {
-      startTyping();
-    }
-  });
-</script>

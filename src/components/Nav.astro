@@ -1,0 +1,23 @@
+---
+const { active } = Astro.props;
+const links = [
+  { id: "home", label: "Home", href: "/" },
+  { id: "projects", label: "Projects", href: "/projects" },
+  { id: "cv", label: "CV", href: "/cv" },
+];
+---
+
+<nav class="nav" aria-label="Main">
+  <a href="/" class="nav-brand" aria-label="Lan Anh — home">
+    <span class="nav-mark">LA</span>
+    <span>Lan Anh</span>
+  </a>
+  {
+    links.map((l) => (
+      <a href={l.href} class:list={["nav-link", { "is-active": l.id === active }]} aria-current={l.id === active ? "page" : undefined}>
+        {l.label}
+      </a>
+    ))
+  }
+  <a href="mailto:lananhchloe1509@gmail.com" class="nav-cta">Contact</a>
+</nav>

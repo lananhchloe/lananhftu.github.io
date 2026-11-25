@@ -1,152 +1,97 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLine.astro";
+
+const certifications = [
+  "IELTS: 7.5",
+  "Top 5 Best Poster Presented at the International Conference on International Mobility for Economic Development in an Era of Uncertainty and Digital Transformation",
+  "Top 10% Vietnam Region - Super Alpha Competition 2025 - WorldQuant BRAIN",
+  "Top 5% Global at Global Alpha Competition 2025 - WorldQuant BRAIN",
+  "Top 15 - Product Pioneer Candidate 2025 - FTU Dynamic Club",
+  "WorldQuant Expert Level Certificate",
+  "WorldQuant Challenge Gold Certificate",
+];
+const skills = ["Python Programming", "Analytical Thinking", "Statistical Data Analysis", "Quantitative Research", "SQL"];
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
-  <div class="mb-5">
-    <div class="text-5xl w-full font-bold">Quach Pham Lan Anh</div>
-  </div>
+  <header class="pb-12">
+    <span class="eyebrow reveal">Resume</span>
+    <h1 class="h-section !text-[clamp(38px,6vw,68px)] mt-4 reveal">
+      Quach Pham <span class="serif-accent">Lan Anh</span>
+    </h1>
+    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[13px] text-[#b4bfd6] reveal">
+      <span>Bachelor of International Economics @Foreign Trade University</span>
+      <span>WorldQuant BRAIN Research Consultant @WorldQuant</span>
+      <span>Ha Noi, Vietnam</span>
+      <a class="text-[#7fb8ff] hover:text-white" href="mailto:lananhchloe1509@gmail.com">lananhchloe1509@gmail.com</a>
+      <span>lananhftu.netlify.app</span>
+    </div>
+  </header>
 
-  <div class="mb-10 text-justify text-lg">
-    <p>Bachelor of International Economics @Foreign Trade University</p>
-    <p>WorldQuant BRAIN Research Consultant @WorldQuant</p>
-    <p>Ha Noi, Vietnam</p>
-    <p>lananhchloe1509@gmail.com</p>
-    <p>lananhftu.netlify.app</p>
-  </div>
+  <section class="cv-section">
+    <span class="eyebrow">Education</span>
+    <div>
+      <TimeLineElement title="Foreign Trade University" subtitle="Bachelor of International Economics (2023-2027)">
+        <ul>
+          <li>Cumulative GPA: 3.67/4.00</li>
+          <li>Top 5 Best Poster Presented at the International Conference on International Mobility for Economic Development in an Era of Uncertainty and Digital Transformation</li>
+          <li>Top 10% Vietnam Region – Super Alpha Competition 2025 – WorldQuant BRAIN</li>
+          <li>Top 5% Global – Global Alpha Competition 2025 – WorldQuant BRAIN</li>
+          <li>Top 15 – Product Pioneer Candidate 2025 – FTU Dynamic Club</li>
+          <li>WorldQuant Expert Level Certificate</li>
+        </ul>
+      </TimeLineElement>
+      <TimeLineElement title="Yen Dinh 1 Highschool" subtitle="(2020-2023)">
+        <ul>
+          <li>IELTS: 7.0</li>
+          <li>National Entrance Exam: 27.6/30</li>
+          <li>VNU Competency Assessment Exam: 105/150</li>
+          <li>Consolation Prize – Excellent Student in English (Provincial Level)</li>
+        </ul>
+      </TimeLineElement>
+    </div>
+  </section>
 
-<div class="mb-5">
-  <div class="text-3xl w-full font-bold">Education</div>
-</div>
+  <section class="cv-section">
+    <span class="eyebrow">Experience</span>
+    <div>
+      <TimeLineElement title="WorldQuant BRAIN Research Consultant" subtitle="December 2024 - Present · WorldQuant">
+        <ul>
+          <li>Building Alphas utilizes Worldquant's BRAIN API.</li>
+          <li>Utilizing Worldquant's BRAIN - a platform specifically designed for building and testing alphas. BRAIN offers a vast amount of financial data, simulation tools, and advanced features for consultants to work with.</li>
+          <li>Responsible for producing high-quality predictive signals (alphas) through proprietary research to employ financial strategies focused on market inefficiencies.</li>
+        </ul>
+      </TimeLineElement>
+      <TimeLineElement title="Marketing Coordinator" subtitle="September 2024 - December 2024 · VinUni Business Insider">
+        <ul>
+          <li>Actively manage media timelines and plan for the project promotion "Next Trainee Challenge 2024"</li>
+        </ul>
+      </TimeLineElement>
+      <TimeLineElement title="Marketing Specialist" subtitle="July 2024 - December 2024 · CESGLOBAL">
+        <ul>
+          <li>Creating visual and video content for digital campaigns and developing communication plans boosting engagement by 35%</li>
+        </ul>
+      </TimeLineElement>
+      <TimeLineElement title="Member of Communication Department" subtitle="November 2023 - November 2024 · FTU Real Estate Club">
+        <ul>
+          <li>Media Team Member at REC, responsible for designing creative visuals and managing communication strategies to amplify the club's outreach and engagement</li>
+        </ul>
+      </TimeLineElement>
+    </div>
+  </section>
 
-<div class="time-line-container grid gap-4 mb-10">
-
-  <TimeLineElement
-    title="Foreign Trade University"
-    subtitle="Bachelor of International Economics (2023-2027)"
-  >
-    <ul class="list-disc ml-5 space-y-1">
-      <li>Cumulative GPA: 3.67/4.00</li>
-      <li>
-        Top 5 Best Poster Presented at the International Conference on 
-        International Mobility for Economic Development in an Era of 
-        Uncertainty and Digital Transformation
-      </li>
-      <li>
-        Top 10% Vietnam Region – Super Alpha Competition 2025 – WorldQuant BRAIN
-      </li>
-      <li>
-        Top 5% Global – Global Alpha Competition 2025 – WorldQuant BRAIN
-      </li>
-      <li>Top 15 – Product Pioneer Candidate 2025 – FTU Dynamic Club</li>
-      <li>WorldQuant Expert Level Certificate</li>
+  <section class="cv-section">
+    <span class="eyebrow">Certifications</span>
+    <ul class="cv-list !mt-0 reveal">
+      {certifications.map((c) => <li>{c}</li>)}
     </ul>
-  </TimeLineElement>
+  </section>
 
-  <TimeLineElement
-    title="Yen Dinh 1 Highschool"
-    subtitle="(2020-2023)"
-  >
-<ul class="list-disc ml-5 space-y-1">
-    <li>IELTS: 7.0</li>
-    <li>National Entrance Exam: 27.6/30</li>
-    <li>VNU Competency Assessment Exam: 105/150</li>
-    <li>Consolation Prize – Excellent Student in English (Provincial Level)</li>
-  </ul>
-</TimeLineElement>
-
-</div>
-
-<div class="mb-5">
-  <div class="text-3xl w-full font-bold">Experience</div>
-</div>
-
-<div class="time-line-container mb-10">
-
-  <TimeLineElement
-    title="WorldQuant BRAIN Research Consultant"
-    subtitle="December 2024 - Present at Worldquant"
-  >
-    <div class="font-semibold mt-2"></div>
-    <ul class="list-disc ml-5 space-y-1">
-      <li>Building Alphas utilizes Worldquant's BRAIN API.</li>
-      <li>
-        Utilizing Worldquant's BRAIN - a platform specifically designed for building and testing alphas. BRAIN offers a vast amount of financial data, simulation tools, and advanced features for consultants to work with.
-      </li>
-      <li>
-        Responsible for producing high-quality predictive signals (alphas) through proprietary research to employ financial strategies focused on market inefficiencies.
-      </li>
-    </ul>
-  </TimeLineElement>
-
-  <TimeLineElement
-    title="Marketing Coordinator"
-    subtitle="September 2024 - December 2024 at VinUni Business Insider"
-  >
-<ul class="list-disc ml-5 space-y-1">
-    <li>Actively manage media timelines and plan for the project promotion "Next Trainee Challenge 2024"</li>
-  </ul>
-</TimeLineElement>
-
-  <TimeLineElement
-    title="Marketing Specialist"
-    subtitle="July 2024 - December 2024 at CESGLOBAL"
-   >
-<ul class="list-disc ml-5 space-y-1">
-    <li>Creating visual and video content for digital campaigns and developing communication plans boosting engagement by 35%</li>
-  </ul>
-</TimeLineElement>
-
-  <TimeLineElement
-    title="Member of Communication Department"
-    subtitle="November 2023 - November 2024 at FTU Real Estate Club"
-  >
-   <ul class="list-disc ml-5 space-y-1">
-    <li>Media Team Member at REC, responsible for designing creative visuals and managing communication strategies to amplify the club's outreach and engagement</li>
-  </ul>
-  </TimeLineElement>
-
-</div>
-
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Certifications</div>
-  </div>
-
-  <ul class="list-disc mx-6 mb-10 grid gap-2">
-    <li>
-      <a href="#" target="_blank"> IELTS: 7.5 </a>
-    </li>
-    <li>
-      <a href="#" target="_blank"> Top 5 Best Poster Presented at the International Conference on International Mobility for Economic Development in an Era of Uncertainty and Digital Transformation </a>
-    </li>
-    <li>
-      <a href="#" target="_blank"> Top 10% Vietnam Region - Super Alpha Competition 2025 - WorldQuant BRAIN </a>
-    </li>
-    <li>
-      <a href="#" target="_blank"> Top 5% Global at Global Alpha Competition 2025 - WorldQuant BRAIN </a>
-    </li>
-    <li>
-      <a href="#" target="_blank"> Top 15 - Product Pioneer Candidate 2025 - FTU Dynamic Club </a>
-    </li>
-    <li>
-      <a href="#" target="_blank"> WorldQuant Expert Level Certificate </a>
-    </li>
-    <li>
-      <a href="#" target="_blank"> WorldQuant Challenge Gold Certificate </a>
-    </li>
-  </ul>
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Skills</div>
-  </div>
-
-<div class="flex flex-wrap gap-2 mx-6">
-  <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Python Programming</span>
-  <span class="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Analytical Thinking</span>
-  <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Statistical Data Analysis</span>
-  <span class="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">Quantitative Research</span>
-  <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">SQL</span>
-</div>
+  <section class="cv-section">
+    <span class="eyebrow">Skills</span>
+    <div class="flex flex-wrap gap-2 reveal">
+      {skills.map((s) => <span class="chip">{s}</span>)}
+    </div>
+  </section>
 </BaseLayout>
