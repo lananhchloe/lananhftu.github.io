@@ -2,12 +2,43 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				sans: ['"Inter Tight"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				serif: ['"Instrument Serif"', 'ui-serif', 'Georgia', 'serif'],
+				mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+			},
+		},
 	},
-	plugins: [require("@tailwindcss/typography"),require("daisyui")],
+	plugins: [require("@tailwindcss/typography"), require("daisyui")],
 	daisyui: {
-		themes: true, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
-		darkTheme: "dark", // name of one of the included themes for dark mode
-		logs: false, // Shows info about daisyUI version and used config in the console when building your CSS
-	  }
+		// Professional theme: black base + electric blue accent
+		themes: [
+			{
+				pro: {
+					"primary": "#2f7bff",
+					"primary-content": "#ffffff",
+					"secondary": "#5aa9ff",
+					"secondary-content": "#020814",
+					"accent": "#9fd0ff",
+					"accent-content": "#020814",
+					"neutral": "#111522",
+					"neutral-content": "#e8eefc",
+					"base-100": "#05070d",
+					"base-200": "#0b0f1a",
+					"base-300": "#141a2a",
+					"base-content": "#e8eefc",
+					"info": "#5aa9ff",
+					"success": "#4ade80",
+					"warning": "#fbbf24",
+					"error": "#f87171",
+					"--rounded-box": "1.25rem",
+					"--rounded-btn": "999px",
+					"--rounded-badge": "999px",
+				},
+			},
+		],
+		darkTheme: "pro",
+		logs: false,
+	},
 }

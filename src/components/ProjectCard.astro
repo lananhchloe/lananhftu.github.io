@@ -1,0 +1,26 @@
+---
+// Text-only bento card (no images/logos).
+// variant: "default" (dark) | "featured" (large blue) | "light" | "wide" (dark, 2 columns)
+const { index, title, desc, url = "#", badge, variant = "default", target = "_blank", delay = 0 } = Astro.props;
+---
+
+<a
+  href={url}
+  target={target}
+  class:list={["p-card reveal", { "p-card--featured": variant === "featured", "p-card--light": variant === "light", "p-card--wide": variant === "wide" }]}
+  style={`--d:${delay}s`}
+>
+  <div class="p-top">
+    <span class="p-index">{index}</span>
+    <span class="p-arrow" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+    </span>
+  </div>
+  <div class="p-body">
+    <h3 class="p-title">
+      {title}
+      {badge && <span class="p-badge">{badge}</span>}
+    </h3>
+    <p class="p-desc">{desc}</p>
+  </div>
+</a>
