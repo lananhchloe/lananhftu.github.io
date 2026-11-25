@@ -167,6 +167,37 @@ body { background: var(--bg); }
 .btn-dark { background: rgba(255, 255, 255, 0.04); color: #fff; border: 1px solid var(--line-strong); }
 .btn-dark:hover { border-color: rgba(255, 255, 255, 0.35); }
 
+/* ---------- Avatar ---------- */
+.avatar-pro {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 24px;
+  padding: 3px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #9fd0ff, var(--blue) 55%, rgba(47, 123, 255, 0.2));
+  box-shadow: 0 0 0 6px rgba(47, 123, 255, 0.08), 0 18px 50px -12px rgba(47, 123, 255, 0.65);
+}
+.avatar-pro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+  background: #fff;
+}
+.avatar-pro--lg { width: 150px; height: 150px; }
+.avatar-status {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #34d399;
+  border: 3px solid var(--bg);
+}
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;

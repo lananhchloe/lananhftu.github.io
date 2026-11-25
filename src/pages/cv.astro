@@ -15,7 +15,8 @@ const skills = ["Python Programming", "Analytical Thinking", "Statistical Data A
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
-  <header class="pb-12">
+  <header class="pb-12 flex flex-col-reverse md:flex-row md:items-end md:justify-between gap-8">
+    <div>
     <span class="eyebrow reveal">Resume</span>
     <h1 class="h-section !text-[clamp(38px,6vw,68px)] mt-4 reveal">
       Quach Pham <span class="serif-accent">Lan Anh</span>
@@ -26,6 +27,10 @@ const skills = ["Python Programming", "Analytical Thinking", "Statistical Data A
       <span>Ha Noi, Vietnam</span>
       <a class="text-[#7fb8ff] hover:text-white" href="mailto:lananhchloe1509@gmail.com">lananhchloe1509@gmail.com</a>
       <span>lananhftu.netlify.app</span>
+    </div>
+    </div>
+    <div class="avatar-pro avatar-pro--lg reveal !m-0 shrink-0">
+      <img src="/avatar.webp" width="480" height="480" alt="Portrait of Quach Pham Lan Anh" />
     </div>
   </header>
 
